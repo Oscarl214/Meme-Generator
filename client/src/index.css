@@ -79,3 +79,8 @@ h1 {
   justify-content: center;
   margin-top: 0.5rem; /* Adjust this value to control the space between the form and the button */
 }
+
+button {
+  background-color: #672280;
+  width: 477px;
+}
