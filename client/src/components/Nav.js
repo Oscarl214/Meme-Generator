@@ -2,11 +2,13 @@ import React from 'react';
 
 const Nav = () => {
   return (
-    <div>
+    <div className="header">
       <nav>
-        <img src="./Troll Face.png" className="nav-logo" />
-        <h1> Meme Generator</h1>
+        <h1 className="header--title"> Meme Generator</h1>
       </nav>
+      <div>
+        <img src="./Troll Face.png" className="header--image" />
+      </div>
     </div>
   );
 };
