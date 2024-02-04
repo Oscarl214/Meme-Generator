@@ -13,14 +13,23 @@ const Generator = () => {
    *   src to the new `memeImage` state you created
    */
 
-  const [memeImage, setMemeImage] = React.useState('');
+  const [meme, setMeme] = React.useState({
+    bottomText: '',
+    topText: '',
+    randomImage: 'http://i.imgflip.com/1bij.jpg',
+  });
+
+  const [allImages, setAllImages] = React.useState(memeData);
 
   function getMemeImage() {
-    const memesArray = memeData.data.memes;
+    const memesArray = allImages.data.memes;
     const randomNumber = Math.floor(Math.random() * memesArray.length);
     // memesArray[randomNumber].url  <-- this line is incomplete!
-
-    setMemeImage(memesArray[randomNumber].url);
+    const url = memesArray[randomNumber].url;
+    setMeme((prevMeme) => ({
+      ...prevMeme,
+      randomImage: url,
+    }));
   }
 
   return (
@@ -33,7 +42,7 @@ const Generator = () => {
         </button>
       </div>
       <div className="img">
-        <img src={memeImage} />
+        <img src={meme.randomImage} alt="meme" />
       </div>
     </main>
   );
